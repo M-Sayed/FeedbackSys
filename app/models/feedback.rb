@@ -5,7 +5,7 @@ class Feedback < ApplicationRecord
   index_name "feedbacks"
   settings do
     mapping do
-      indexes :token
+      indexes :company_token
       indexes :content
     end
   end
@@ -23,11 +23,6 @@ class Feedback < ApplicationRecord
   accepts_nested_attributes_for :state
 
   before_create :set_number
-
-
-  # def to_indexed_json
-  #   to_json(include: { state: {only: [:os, :device, :memory, :storage]}})
-  # end
 
 
   private
