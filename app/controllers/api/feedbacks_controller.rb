@@ -42,13 +42,13 @@ class Api::FeedbacksController < ApplicationController
 
   def set_company
     @company = Company.find_by token: params[:company_token]
-    render json: { msg: 'not fount' },
+    render json: { msg: 'not found' },
            status: :not_found unless @company
   end
 
   def set_feedback
     @feedback = @company.feedbacks.find_by number: params[:number]
-    render json: { msg: 'not fount' },
+    render json: { msg: 'not found' },
            status: :not_found unless @feedback
   end
 
